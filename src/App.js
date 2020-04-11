@@ -5,6 +5,7 @@ import Tabela from './Tabela';
 import Formulario from './Formulario';
 import Header from './Header';
 import PopUp from './PopUp';
+import router from 'react-router-dom';  
 
 
 class App extends Component {
