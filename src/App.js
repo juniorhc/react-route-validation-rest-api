@@ -5,7 +5,7 @@ import Tabela from './Tabela';
 import Formulario from './Formulario';
 import Header from './Header';
 import PopUp from './PopUp';
-import router from 'react-router-dom';
+import ApiService from './ApiService';
 
 
 class App extends Component {
@@ -13,36 +13,36 @@ class App extends Component {
   state = {
     autores: [
       {
-          nome: 'Paulo',
-          livro: 'React',
-          preco: '1000',
-          id: 1
+        nome: 'Paulo',
+        livro: 'React',
+        preco: '1000',
+        id: 1
       },
       {
-          nome: 'Daniel',
-          livro: 'Java',
-          preco: '99',
-          id: 2
+        nome: 'Daniel',
+        livro: 'Java',
+        preco: '99',
+        id: 2
       },
       {
-          nome: 'Marcos',
-          livro: 'Design',
-          preco: '150',
-          id: 3
+        nome: 'Marcos',
+        livro: 'Design',
+        preco: '150',
+        id: 3
       },
       {
-          nome: 'Bruno',
-          livro: 'DevOps',
-          preco: '100',
-          id: 4
+        nome: 'Bruno',
+        livro: 'DevOps',
+        preco: '100',
+        id: 4
       },
       {
-          nome: 'Nico',
-          livro: 'Java',
-          preco: '9999',
-          id: 5
+        nome: 'Nico',
+        livro: 'Java',
+        preco: '9999',
+        id: 5
       }
-  ],
+    ],
   }
 
   removeAutor = index => {
@@ -61,9 +61,8 @@ class App extends Component {
   }
   render() {
 
-    fetch('http://localhost:8000/api/autor')
-    .then(res => res.json())
-    .then(res => console.log(res.data));
+    ApiService.ListaNomes().
+      then(res => console.log(res.data));
 
     return (
       <Fragment>
