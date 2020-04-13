@@ -5,7 +5,7 @@ import Tabela from './Tabela';
 import Formulario from './Formulario';
 import Header from './Header';
 import PopUp from './PopUp';
-import router from 'react-router-dom';  
+import router from 'react-router-dom';
 
 
 class App extends Component {
@@ -13,26 +13,36 @@ class App extends Component {
   state = {
     autores: [
       {
-        nome: 'Paulo',
-        livro: 'React',
-        preco: '1000'
+          nome: 'Paulo',
+          livro: 'React',
+          preco: '1000',
+          id: 1
       },
       {
-        nome: 'Daniel',
-        livro: 'Java',
-        preco: '99'
+          nome: 'Daniel',
+          livro: 'Java',
+          preco: '99',
+          id: 2
       },
       {
-        nome: 'Marcos',
-        livro: 'Design',
-        preco: '150'
+          nome: 'Marcos',
+          livro: 'Design',
+          preco: '150',
+          id: 3
       },
       {
-        nome: 'Bruno',
-        livro: 'DevOps',
-        preco: '100'
+          nome: 'Bruno',
+          livro: 'DevOps',
+          preco: '100',
+          id: 4
+      },
+      {
+          nome: 'Nico',
+          livro: 'Java',
+          preco: '9999',
+          id: 5
       }
-    ],
+  ],
   }
 
   removeAutor = index => {
@@ -50,6 +60,11 @@ class App extends Component {
     PopUp.exibeMensagem('success', "Autor adicionado com sucesso");
   }
   render() {
+
+    fetch('http://localhost:8000/api/autor')
+    .then(res => res.json())
+    .then(res => console.log(res.data));
+
     return (
       <Fragment>
         <Header />
